@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <div id='page' class='page'>
+        <div id='loading_screen' class='loading-screen'>
+            <div class='loading-text'>Loading</div>
+            <div class="wave-cont">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+        </div>
+        <div id='grid_cont' class='grid-cont loading'>
+            <div class='grid-gen-cont'>
+                <div class='grid-gen-int'>
+                    <div class='title'><u>Grid Gen</u></div>
+                    <div class='robot-num-sel'>
+                        <div class='robot-num-text'>Number of robots</div>
+                        <div class='dropdown'>
+                            <button id='robo_num_dropdown' class='button dropdown-btn'>1</button>
+                            <div class='dropdown-cont'>
+                                <div class='dropdown-flexbox'>
+                                    <button id='robo_num_1' class='button dropdown-item' onclick='set_robo_num()'>1</button>
+                                    <button id='robo_num_2' class='button dropdown-item' onclick='set_robo_num()'>2</button>
+                                    <button id='robo_num_3' class='button dropdown-item' onclick='set_robo_num()'>3</button>
+                                    <button id='robo_num_4' class='button dropdown-item' onclick='set_robo_num()'>4</button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='diff'>
+                        <div class='diff-text'>Difficulty</div>
+                        <div class='tooltip'>
+                            <i><b class='tooltip-i'>i</b></i>
+                            <div class='tooltip-info'><b>Difficulty (moves)</b><br>Easy: <<div class='tooltip-vals' id='easy_val'>4</div><br>Medium: <div class='tooltip-vals' id='med_val'>5-10</div><br>Hard: ><div class='tooltip-vals' id='hard_val'>10</div></div>
+                        </div>
+                        <form id='diff_form' name='diff' class='diff-form'>
+                            <label class='radio-label' for='easy'>Easy</label>
+                            <input class='rad-button' type='radio' id='easy' value='easy' name='diff'>
+                            <label class='radio-label' for='easy'>Med</label>
+                            <input class='rad-button' type='radio' id='med' value='med' name='diff' checked=true>
+                            <label class='radio-label' for='easy'>Hard</label>
+                            <input class='rad-button' type='radio' id='hard' value='hard' name='diff'>
+                        </form>
+                    </div>
+                    <div class='gen-btn-cont'>
+                        <button id='gen_btn' class='button gen-btn' onclick='new_grid()'>Generate
+                            <div id='gen-btn-load' class='wave-cont hide'>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                                <div class="wave gen-btn-style"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class='centre'>
+                <div id='grid' class='grid'></div>
+                <div class='btn-cont'>
+                    <button class='reset-btn button' id='reset_btn' onclick='reset()'>Reset</button>
+                    <button class='reset-btn button' id='hint_btn' onclick='show_hint()' disabled=true>Hint</button>
+                    <button class='reset-btn button' id='adv_btn' onclick='advance_1()' disabled=true>Advance 1</button>
+                    <button class='button' id='play_btn' onclick='play()'>Play</button>
+                </div>
+            </div>        
+            <div class='right-side'>
+                <div class='win-loss-cont'>
+                    <div id='score_cont' class='score-cont'>
+                        <div class='score-title'>Score</div>
+                        <div id='score_fig_cont' class='score-fig-cont'>
+                            <div class='score-fig'>0</div>
+                            <div class='score-fig'>0</div>
+                            <div class='score-fig'>0</div>
+                            <div class='score-fig last'>0</div>
+                        </div>
+                    </div>
+                    <div class='state-cont'>
+                        <div id='win' class='state'>WIN</div>
+                        <div id='loss' class='state'>LOSS</div>                    
+                    </div>
+                </div>
+                <div class='comm-chat'>
+                    <div class='text-cont'>
+                        <div id='comm_text' class='text'></div>
+                    </div>
+                    <div class='arrow-cont'>
+                        <button class='button up arrow-btn' onclick='prev_msg()'>▲</button>
+                        <button class='button down arrow-btn' onclick='next_msg()'>▼</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='breadth_first.js'></script>
+    <link rel='stylesheet' href='index.css'>
+</html>
