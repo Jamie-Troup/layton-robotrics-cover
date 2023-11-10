@@ -125,7 +125,6 @@ function make_grid(diff, robot_gen_num) {
         grids_made++
     }
     console.log('Grids tried - ', grids_made, 'Iterations attempted - ', attempts)
-    console.log(sol_arrows, sol_arrow_states)
 }
 
 function diff_met(diff) {
@@ -297,7 +296,7 @@ function delay(time) {
 }
 
 function show_hint() {
-    hints_shown[robot_num]++
+    hints_shown[robot_num] = hints_shown[robot_num] + 1
     if (hints_shown[robot_num] === sol_arrow_states[robot_num].filter(x => x===0).length) {
         document.querySelector('#hint_btn').disabled = true
         hints_fully_shown[robot_num] = true
@@ -309,7 +308,7 @@ function show_hint() {
         if (arrow_state === 0) {
             zeros_found++
             if (zeros_found === hints_shown[robot_num]) {
-                document.querySelector('#grid-item-'+sol_arrows[robot_num][index].toString()).firstElementChild.classList.add('hint')
+                document.querySelector('#grid-item-'+(sol_arrows[robot_num][index].toString())).classList.add('hint')
             }
         }
     }
@@ -512,9 +511,7 @@ function reset() {
     hints_fully_shown = [false, false, false, false]
     document.querySelector('#hint_btn').disabled = false
     const play_btn = document.querySelector('#play_btn')
-    play_btn.style.background = ''
     play_btn.disabled = false
-    play_btn.style.color = ''
     if (clicked) {
         document.querySelector('#adv_btn').disabled = false
         edit_class(img_pos.robots[robot_num].pos, 'clicked-robot', false)
@@ -557,6 +554,7 @@ function set_grid_imgs() {
 function set_img(pos, img=null) {
     const grid_item = document.querySelector('#grid-item-'+pos.toString())
     remove_class(pos, 'border', true)
+    grid_item.classList.remove('hint')
     const img_elem = grid_item.firstElementChild.firstElementChild
     img_elem.removeEventListener('click', on_robot_click)
     img_elem.removeEventListener('click', toggle_arrow)

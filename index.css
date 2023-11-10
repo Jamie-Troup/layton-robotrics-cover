@@ -399,12 +399,12 @@ button {
 .grid-item.border-left {
   border-left-color: black;
 }
+.grid-item.hint {
+  border-color: purple;
+}
 
 .image-cont {
   display: flex;
-}
-.image-cont.hint {
-  border-color: purple;
 }
 .image-cont .image {
   height: 7vmin;
