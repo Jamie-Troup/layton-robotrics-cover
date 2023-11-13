@@ -30,7 +30,7 @@ let grid_found = false
 let used_pos = []
 let robot_pos_list = []
 let num_of_robots = 1
-let sol_diff = 'easy'
+let sol_diff = 'med'
 
 /* Other variables */
 let message_arr = []
