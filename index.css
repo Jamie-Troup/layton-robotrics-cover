@@ -21,13 +21,20 @@ button {
   align-items: center;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
 }
-.page .robot-anim {
+.page .background-anim {
   position: absolute;
   width: 0;
-  height: 5vmin;
-  background: white;
   left: 0;
+  height: 7vh;
+  animation: move 10s 2.2s forwards linear;
+  background: url("big_enough_bg.gif");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 @keyframes move {
   0% {
@@ -70,15 +77,15 @@ button {
 .page .grid-cont {
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .page .grid-cont.loading {
   display: none;
 }
 .page .grid-cont .grid-gen-cont {
-  border: 1vmin solid #2196f3;
+  border: 1vmin solid transparent;
   border-top-left-radius: 1vmin;
   border-bottom-left-radius: 1vmin;
-  background: #2196f3;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int {
   display: flex;
@@ -87,8 +94,8 @@ button {
   flex-direction: column;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .title {
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
   font-size: 4vmin;
   border-top-left-radius: 1vmin;
   border-top-right-radius: 1vmin;
@@ -97,13 +104,13 @@ button {
 .page .grid-cont .grid-gen-cont .grid-gen-int .robot-num-sel {
   display: flex;
   align-items: center;
-  background: black;
+  background: white;
   border-top-left-radius: 1vmin;
   border-top-right-radius: 1vmin;
   padding: 0 2vmin;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .robot-num-sel .robot-num-text {
-  color: white;
+  color: black;
   font-size: 3vmin;
   padding-right: 2vmin;
 }
@@ -113,15 +120,14 @@ button {
   padding: 0.5vmin 0;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .robot-num-sel .dropdown .dropdown-btn {
-  font-size: 3vmin;
-  padding: 0 1vmin;
+  font-size: 2.2vmin;
   border-radius: 1vmin;
-  min-width: 4.5vmin;
+  min-width: 3.5vmin;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .robot-num-sel .dropdown .dropdown-cont {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: black;
   min-width: 10vmin;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -137,10 +143,10 @@ button {
   justify-content: center;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .robot-num-sel .dropdown .dropdown-cont .dropdown-flexbox .dropdown-item {
-  color: black;
+  color: white;
   padding: 0.8vmin 1vmin;
   border-radius: 1vmin;
-  background-color: white;
+  background-color: black;
   border: 0;
   font-size: 2vmin;
 }
@@ -151,14 +157,14 @@ button {
   display: block;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .diff {
-  background: black;
+  background: white;
   border-radius: 1vmin;
   display: flex;
   align-items: center;
   padding: 0.5vmin 2vmin;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .diff .diff-text {
-  color: white;
+  color: black;
   font-size: 3vmin;
   padding-right: 1vmin;
 }
@@ -170,8 +176,8 @@ button {
   border-radius: 50%;
   width: 2.5vmin;
   height: 2.5vmin;
-  background: white;
-  color: black;
+  background: black;
+  color: white;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .diff .tooltip .tooltip-i {
   position: absolute;
@@ -182,12 +188,12 @@ button {
 .page .grid-cont .grid-gen-cont .grid-gen-int .diff .tooltip .tooltip-info {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: black;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   overflow-wrap: break-word;
   overflow: scroll;
-  color: black;
+  color: white;
   font-size: 2vmin;
   min-width: 20vmin;
   border-radius: 1vmin;
@@ -216,18 +222,21 @@ button {
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .diff .diff-form .radio-label {
   font-size: 3vmin;
-  color: white;
+  color: black;
   padding-left: 1vmin;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .gen-btn-cont {
   padding: 0.5vmin 1vmin;
   padding-bottom: 1vmin;
-  background: black;
+  background: white;
   border-bottom-left-radius: 1vmin;
   border-bottom-right-radius: 1vmin;
   display: flex;
 }
 .page .grid-cont .grid-gen-cont .grid-gen-int .gen-btn-cont .gen-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 3vmin;
   width: 20vmin;
   height: 4vmin;
@@ -244,13 +253,13 @@ button {
 .page .grid-cont .centre .grid {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
-  background-color: #2196f3;
-  padding: 2vmin;
+  background-color: rgb(255, 255, 255);
+  padding: 1vmin;
   border-radius: 1vmin;
 }
 .page .grid-cont .centre .btn-cont {
-  background-color: #2196f3;
-  padding: 0px 2vmin 2vmin 2vmin;
+  background-color: white;
+  padding: 1vmin;
   border-bottom-right-radius: 1vmin;
   border-bottom-left-radius: 1vmin;
   font-size: 0;
@@ -275,15 +284,14 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2vmin solid #2196f3;
+  border: 2vmin solid transparent;
   border-top-right-radius: 1vmin;
   border-width: 2vmin 2vmin 1vmin 0;
-  background: #2196f3;
   position: relative;
 }
 .page .grid-cont .right-side .win-loss-cont .score-cont {
   position: absolute;
-  background: #2196f3;
+  background: white;
   border-radius: 1vmin;
   bottom: 27vmin;
   display: flex;
@@ -294,7 +302,7 @@ button {
 }
 .page .grid-cont .right-side .win-loss-cont .score-cont .score-title {
   font-size: 5vmin;
-  color: white;
+  color: black;
   padding: 1vmin 0;
 }
 .page .grid-cont .right-side .win-loss-cont .score-cont .score-fig-cont {
@@ -317,16 +325,15 @@ button {
   font-size: 7vmin;
   text-align: center;
   width: 33vmin;
-  border: 2vmin solid black;
+  border: 2vmin solid white;
   border-radius: 1vmin;
-  background: black;
+  background: white;
 }
 .page .grid-cont .right-side .win-loss-cont .state-cont .state {
   border-radius: 1vmin;
-  background: black;
+  background: white;
 }
 .page .grid-cont .right-side .win-loss-cont .state-cont .state.win {
-  s: 10px;
   background: #00FF10;
   color: white;
 }
@@ -336,21 +343,19 @@ button {
 }
 .page .grid-cont .right-side .comm-chat {
   width: 52vmin;
-  border: 26px solid #2196f3;
-  border-width: 1vmin 2vmin 2vmin 0;
   border-bottom-right-radius: 1vmin;
-  background: #2196f3;
   display: flex;
+  justify-content: center;
 }
 .page .grid-cont .right-side .comm-chat .text-cont {
-  background: black;
+  background: white;
   overflow: scroll;
   border-top-left-radius: 1vmin;
   border-bottom-left-radius: 1vmin;
   width: 45vmin;
 }
 .page .grid-cont .right-side .comm-chat .text-cont .text {
-  color: white;
+  color: black;
   padding: 1vmin 0 1vmin 1vmin;
   font-size: 3vmin;
   height: 1em;
@@ -367,8 +372,10 @@ button {
   text-align: center;
   font-size: 1.5vmin;
   cursor: pointer;
-  border: 0.4vmin solid black;
+  border: 0.4vmin solid white;
   border-radius: 0;
+  background: black;
+  color: white;
 }
 .page .grid-cont .right-side .comm-chat .arrow-cont .arrow-btn.up {
   padding-bottom: 0.2vmin;
@@ -382,7 +389,7 @@ button {
 
 .grid-item {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1vmin solid transparent;
@@ -405,6 +412,13 @@ button {
 
 .image-cont {
   display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+.image-cont.background-cont {
+  position: relative;
+  justify-content: end;
 }
 .image-cont .image {
   height: 7vmin;
@@ -413,11 +427,28 @@ button {
   user-select: none;
 }
 .image-cont .image.sprite-anim {
-  height: 18px;
-  width: 18px;
-  animation: sprite 1s steps(4) infinite;
   object-fit: none;
   image-rendering: pixelated;
+}
+.image-cont .image.sprite-cross {
+  animation: bg_sprite 1s steps(4) infinite, sprite-cross 14s forwards linear;
+  cursor: default;
+  position: absolute;
+}
+.image-cont .image.sprite-55 {
+  animation: sprite_55 1s steps(4) infinite;
+}
+.image-cont .image.sprite-618 {
+  animation: sprite_618 1s steps(4) infinite;
+}
+.image-cont .image.sprite-89 {
+  animation: sprite_89 1s steps(4) infinite;
+}
+.image-cont .image.sprite-341 {
+  animation: sprite_341 1s steps(4) infinite;
+}
+.image-cont .image.animation-paused {
+  animation-play-state: paused;
 }
 .image-cont .image.no-cursor {
   cursor: default;
@@ -517,12 +548,53 @@ button:disabled {
   cursor: default;
 }
 
-@keyframes sprite {
+@keyframes bg_sprite {
   0% {
-    object-position: 0px 0;
+    object-position: -80px 0;
   }
   100% {
-    object-position: -72px 0;
+    object-position: -160px 0;
+  }
+}
+@keyframes sprite-cross {
+  0% {
+    left: -20vw;
+  }
+  100% {
+    left: 120vw;
+    src: "";
+  }
+}
+@keyframes sprite_55 {
+  0% {
+    object-position: 0;
+  }
+  100% {
+    object-position: -80px 0;
+  }
+}
+@keyframes sprite_618 {
+  0% {
+    object-position: 0;
+  }
+  100% {
+    object-position: -96px 0;
+  }
+}
+@keyframes sprite_89 {
+  0% {
+    object-position: 0;
+  }
+  100% {
+    object-position: -88px 0;
+  }
+}
+@keyframes sprite_341 {
+  0% {
+    object-position: 0;
+  }
+  100% {
+    object-position: -100px 0;
   }
 }
 
